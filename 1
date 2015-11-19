@@ -1,0 +1,25 @@
+import hashlib
+m = hashlib.md5()
+s=0;
+a=""
+z=list()
+while(s<10000):
+    if len(str(s))==1:
+        a="000"+str(s)
+        z.append(a)
+    elif len(str(s))==2:
+        a="00"+str(s)
+        z.append(a)
+    elif len(str(s))==3:
+        a="0"+ str(s)
+        z.append(a)
+    else:
+        z.append(str(s))
+    s+=1
+a=0
+while(a<len(z)):
+    m = hashlib.md5()
+    m.update("5937d93a34da77f4d61fc127f2ada811"+z[a])
+    if m.hexdigest() == "a623c25f8da2ed5a6e5153396b762180":
+       print  z[a]
+    a+=1
